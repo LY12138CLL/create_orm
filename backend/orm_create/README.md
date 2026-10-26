@@ -23,6 +23,7 @@ uv run pyinstaller -w ^
   --add-data "./src/orm_create/app.ico;." ^
   --upx-dir D:/python/upx-5.2.1-win64 ^
   --name orm_create ^
+  --version-file "./src/orm_create/version_info.txt" ^
   ./src/orm_create/main.py
 ~~~
 
