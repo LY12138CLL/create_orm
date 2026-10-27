@@ -309,9 +309,13 @@ async function onConnectSqlite() {
   stateInfo.value.state = '正在连接中...'
   const result = await apiSqliteConnectDatabase()
   if (result.message === 'success') {
-    if (!result.data.databaseFile) {
+    if (result.data.databaseFile) {
       formData.value.dbName = result.data.databaseFile
       await onGetSqliteDbTable()
+    } else {
+      formData.value.dbName = ''
+      stateInfo.value.state = '连接失败'
+      stateInfo.value.message = ''
     }
   } else {
     formData.value.dbName = ''
